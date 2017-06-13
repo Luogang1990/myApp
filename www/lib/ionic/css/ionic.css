@@ -8138,7 +8138,7 @@ input:checked + .checkbox-icon:after {
 .platform-android4_2 .toggle .track {
   -webkit-background-clip: padding-box; }
 
-/* the handle (circle) thats inside the toggle's track area */
+/* the handle (circle) thats inside the toggle's track areas */
 /* also the handle's appearance when it is "off" */
 .toggle .handle {
   -webkit-transition: 0.3s cubic-bezier(0, 1.1, 1, 1.1);
@@ -8365,7 +8365,7 @@ input:checked + .checkbox-icon:after {
     background: #444;
     content: ' '; }
   .range input::-webkit-slider-thumb:after {
-    /* create a larger (but hidden) hit area */
+    /* create a larger (but hidden) hit areas */
     position: absolute;
     top: -15px;
     left: -15px;
@@ -9177,7 +9177,7 @@ a.button {
 /* Explicit Column Percent Sizes */
 /* By default each grid column will evenly distribute */
 /* across the grid. However, you can specify individual */
-/* columns to take up a certain size of the available area */
+/* columns to take up a certain size of the available areas */
 .col-10 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 10%;

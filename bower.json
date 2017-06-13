@@ -1,7 +1,28 @@
 {
   "name": "HelloIonic",
-  "private": "true",
+  "private": true,
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.3.3"
-  }
+    "ionic": "driftyco/ionic-bower#1.3.3",
+    "bootstrap": "^3.3.7"
+  },
+  "dependencies": {
+    "ionic-image-lazy-load": "ion-image-lazy-load#*",
+    "ngCordova": "^0.1.27-alpha",
+    "Swiper": "swiper#^3.3.1"
+  },
+  "authors": [
+    "Wangluogang <461251455@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "www/lib",
+    "test",
+    "tests"
+  ]
 }

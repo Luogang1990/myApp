@@ -101,7 +101,7 @@
 /* Explicit Column Percent Sizes */
 /* By default each grid column will evenly distribute */
 /* across the grid. However, you can specify individual */
-/* columns to take up a certain size of the available area */
+/* columns to take up a certain size of the available areas */
 .col-10 {
   @include flex(0, 0, 10%);
   max-width: 10%;

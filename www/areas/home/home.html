@@ -1,0 +1,51 @@
+
+<ion-view class="home_hot_top" view-title="热映电影">
+  <ion-content>
+    <div id="header">
+      <!--左上角-logo-->
+      <span id="header-logo">
+            <a href="index.html"><img src="../../img/index-header01.png" alt=""></a>
+        </span>
+      <!--选择城市-->
+      <label id="header-location">
+        <a href="index.html">广州<img src="../../img/index-header02.png" alt=""></a>
+      </label>
+      <!--右上角-菜单-->
+      <div class="dropdown" >
+        <a  class="dropdown-toggle"data-toggle="dropdown"><img src="../../img/fenlei.png" alt=""></a>
+        <div class="dropdown-menu">
+          <a ><img src="../../img/shouyehsouye.png" alt=""/><span>首页</span></a><br/>
+          <a ><img src="../../img/gerengeren.png" alt=""/><span>个人中心</span></a>
+        </div>
+      </div>
+    </div>
+      <div id="toggle-label">
+        <div id="movie-label">电影</div>
+        <div id="cinema-label">影院</div>
+      </div>
+
+    </div>
+
+    <ion-refresher pulling-text="下拉刷新" on-refresh="dorefresh()"></ion-refresher>
+    <ion-list ng-repeat="item in hotmovies" class="movie-item">
+      <ion-item class="item item-avatar">
+        <a href="#/detail/{{item.id}}" style="width: 100%;position: relative;left: -25%" >
+          <div class="row">
+            <img class="col-md-2 col-sm-2" ng-src="{{item.images.small}}">
+            <div class="col-md-9 col-sm-19" style="position: relative;left: -20px">
+              <h3>{{item.title}}</h3>
+              <p>主演: <span ng-repeat="cast in item.casts">{{cast.name}}{{$last?'':'、'}}</span></p>
+              <p>导演：<span ng-repeat="director in item.directors">{{director.name}}{{$last?'':'、'}}</span></p>
+              <p>类型：<span>{{item.genres.join('、')}}</span></p>
+            </div>
+          </div>
+        </a>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+
+
+
+
+

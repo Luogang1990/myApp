@@ -1,85 +1,75 @@
-// Ionic Starter App
+//项目开始的js文件
+/**
+ * 引入需要使用的js模块
+ * route:路由
+ * config:设置
+ * global:全局参数
+ * ionicLazyLoad:数据懒加载
+ * indexdb:本地数据库
+ * commonjs:本地其他配置
+ * ngCordova:提供手机和当前代码的交互
+ *
+ * ,'indexdb','commonJs'
+ */
+angular.module('starter', ['ionic', 'route', 'config','global','ionicLazyLoad','ngCordova'])
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+  .run(function ($ionicPlatform,$location,$ionicHistory,$rootScope,$ionicPopup) {
+    $ionicPlatform.ready(function () {
+      if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        cordova.plugins.Keyboard.disableScroll(true);
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
-
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-})
-
-.config(function($stateProvider, $urlRouterProvider) {
-
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
-  $stateProvider
-
-  // setup an abstract state for the tabs directive
-    .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  })
-
-  // Each tab has its own nav history stack:
-
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
       }
-    }
-  })
-
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
+      if (window.StatusBar) {
+        StatusBar.styleDefault();
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
+    /**
+     * 两次返回键退出应用
+     */
+    $ionicPlatform.registerBackButtonAction(function (e) {
+      //阻止默认的行为
+      e.preventDefault();
+      // 退出提示框
+      function showConfirm() {
+        var servicePopup = $ionicPopup.show({
+          title: '提示',
+          subTitle: '你确定要退出应用吗？',
+          scope: $rootScope,
+          buttons: [
+            {
+              text: '取消',
+              type: 'button-clear button-assertive',
+              onTap: function () {
+                return 'cancel';
+              }
+            },
+            {
+              text: '确认',
+              type: 'button-clear button-assertive border-left',
+              onTap: function (e) {
+                return 'active';
+              }
+            },
+          ]
+        });
+        servicePopup.then(function (res) {
+          if (res == 'active') {
+            // 退出app
+            ionic.Platform.exitApp();
+          }
+        });
       }
-    })
 
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      // 判断当前路由是否为各个导航栏的首页，是的话则显示提示框
+      if ($location.path() == '/home' || $location.path() == '/likes' || $location.path() == '/carts' || $location.path() == '/account') {
+        showConfirm();
+      } else if ($ionicHistory.backView()) {
+        $ionicHistory.goBack();
+      } else {
+        showConfirm();
       }
-    }
-  });
-
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
-
-});
+      return false;
+    }, 101);
+    ;
+  })

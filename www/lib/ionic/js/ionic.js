@@ -1753,7 +1753,7 @@ window.ionic.version = '1.3.3';
    * Drag
    * Move with x fingers (default 1) around on the page. Blocking the scrolling when
    * moving left and right is a good practice. When all the drag events are blocking
-   * you disable scrolling on that area.
+   * you disable scrolling on that areas.
    * events  drag, drapleft, dragright, dragup, dragdown
    */
   ionic.Gestures.gestures.Drag = {
@@ -5029,7 +5029,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
   /** Snapping height for content */
   __snapHeight: 100,
 
-  /** Height to assign to refresh area */
+  /** Height to assign to refresh areas */
   __refreshHeight: null,
 
   /** Whether the refresh process is enabled when the event is released now */
@@ -6754,8 +6754,8 @@ ionic.views.Scroll = ionic.views.View.inherit({
       var clientWidth = self.__clientWidth;
       var clientHeight = self.__clientHeight;
 
-      // We limit deceleration not to the min/max values of the allowed range, but to the size of the visible client area.
-      // Each page should have exactly the size of the client area.
+      // We limit deceleration not to the min/max values of the allowed range, but to the size of the visible client areas.
+      // Each page should have exactly the size of the client areas.
       self.__minDecelerationScrollLeft = Math.floor(scrollLeft / clientWidth) * clientWidth;
       self.__minDecelerationScrollTop = Math.floor(scrollTop / clientHeight) * clientHeight;
       self.__maxDecelerationScrollLeft = Math.ceil(scrollLeft / clientWidth) * clientWidth;
@@ -7608,7 +7608,7 @@ ionic.scroll = {
       content = ionic.DomUtil.getParentWithClass(e.target, ITEM_CONTENT_CLASS);
     }
 
-    // If we don't have a content area as one of our children (or ourselves), skip
+    // If we don't have a content areas as one of our children (or ourselves), skip
     if (!content) {
       return;
     }
@@ -11857,7 +11857,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             }
             if (kc === 37 || kc === 39 || kc === 38 || kc === 40) {
                 var inView = false;
-                //Check that swiper should be inside of visible area of window
+                //Check that swiper should be inside of visible areas of window
                 if (s.container.parents('.swiper-slide').length > 0 && s.container.parents('.swiper-slide-active').length === 0) {
                     return;
                 }

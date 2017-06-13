@@ -85,7 +85,7 @@
   -webkit-background-clip: padding-box;
 }
 
-/* the handle (circle) thats inside the toggle's track area */
+/* the handle (circle) thats inside the toggle's track areas */
 /* also the handle's appearance when it is "off" */
 .toggle .handle {
   @include transition($toggle-transition-duration cubic-bezier(0, 1.1, 1, 1.1));
@@ -101,7 +101,7 @@
   box-shadow: 0 2px 7px rgba(0,0,0,.35), 0 1px 1px rgba(0,0,0,.15);
 
   &:before {
-    // used to create a larger (but hidden) hit area to slide the handle
+    // used to create a larger (but hidden) hit areas to slide the handle
     position: absolute;
     top: -4px;
     left: ( ($toggle-handle-width / 2) * -1) - 8;

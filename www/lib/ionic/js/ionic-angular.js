@@ -3929,7 +3929,7 @@ IonicModule
  *     </button>
  *     <ion-scroll delegate-handle="small" style="height: 100px;">
  *       <button ng-click="scrollSmallToTop()">
- *         Scroll small area to top!
+ *         Scroll small areas to top!
  *       </button>
  *     </ion-scroll>
  *   </ion-content>
@@ -5287,7 +5287,7 @@ function($provide) {
   function $LocationDecorator($location, $timeout) {
 
     $location.__hash = $location.hash;
-    //Fix: when window.location.hash is set, the scrollable area
+    //Fix: when window.location.hash is set, the scrollable areas
     //found nearest to body's scrollTop is set to scroll to an element
     //with that ID.
     $location.hash = function(value) {
@@ -9846,7 +9846,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
  * @restrict E
  *
  * @description
- * The ionContent directive provides an easy to use content area that can be configured
+ * The ionContent directive provides an easy to use content areas that can be configured
  * to use Ionic's custom Scroll View, or the built in overflow scrolling of the browser.
  *
  * While we recommend using the custom Scroll features in Ionic in most cases, sometimes
@@ -10216,7 +10216,7 @@ GESTURE_DIRECTIVES.forEach(function(name) {
  * @description
  * Move with one touch around on the page. Blocking the scrolling when
  * moving left and right is a good practice. When all the drag events are
- * blocking you disable scrolling on that area.
+ * blocking you disable scrolling on that areas.
  *
  * @usage
  * ```html
@@ -12531,7 +12531,7 @@ IonicModule
  * Note that it's important to set the height of the scroll box as well as the height of the inner
  * content to enable scrolling. This makes it possible to have full control over scrollable areas.
  *
- * If you'd just like to have a center content scrolling area, use {@link ionic.directive:ionContent} instead.
+ * If you'd just like to have a center content scrolling areas, use {@link ionic.directive:ionContent} instead.
  *
  * @param {string=} delegate-handle The handle used to identify this scrollView
  * with {@link ionic.service:$ionicScrollDelegate}.
@@ -12959,7 +12959,7 @@ IonicModule
  *
  * @description
  * A container element for side menu(s) and the main content. Allows the left and/or right side menu
- * to be toggled by dragging the main content area side to side.
+ * to be toggled by dragging the main content areas side to side.
  *
  * To automatically close an opened menu, you can add the {@link ionic.directive:menuClose} attribute
  * directive. The `menu-close` attribute is usually added to links and buttons within
